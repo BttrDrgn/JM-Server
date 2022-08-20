@@ -28,7 +28,6 @@ const options = {
 // Params: 'game', 'id', 'pass', 'ver'.
 export const gameEntry = (req, res) =>
 {
-  console.log('GameEntry: ', req.query);
   res.statusCode = 200;
   User.findOne({ id: req.query.id }, (e, user) =>
   {
@@ -110,7 +109,6 @@ export const getName = (req, res) => {
 // Get rankings/leaderboards data.
 // Params: 'id', 'mode', 'view'.
 export const getRanking = (req, res) => {
-  console.log('GetRanking:', req.query);
   res.statusCode = 200;
   // Manage personal rankings.
   if (req.query.id && req.query.view == '0') {
@@ -156,14 +154,12 @@ export const getRanking = (req, res) => {
 // Get replay for the selected score.
 // Params: 'id', 'mode', 'view'.
 export const getReplay = (req, res) => {
-  console.log('GetReplay: ', req.query);
   res.download(path.resolve() + '/rep/' + req.query.id + '.rep');
 };
 
 // Send user score to rankings/leaderboards and replay data.
 // Params: 'id', 'mode', 'score', 'jewel', 'level', 'class', 'time'.
 export const scoreEntry = (req, res) => {
-  console.log('ScoreEntry: ', req.query);
   res.statusCode = 200;
   // Cancel score entry.
   if (options.noScores) {
