@@ -15,9 +15,9 @@ const upload = multer({ storage: storage });
 
 // Server routes.
 router.get('/', Services.index);
-router.get('/JMR/service/GameEntry', Services.gameEntry);
-router.get('/JMR/service/GetMessage', Services.getMessage);
-router.get('/JMR/service/GetName', Services.getName);
-router.get('/JMR/service/GetRanking', Services.getRanking);
-router.get('/JMR/service/GetReplay', Services.getReplay);
-router.post('/JMR/service/ScoreEntry', upload.single('fileName'), Services.scoreEntry);
+router.get('/JRM/service/GameEntry', Services.gameEntry);
+router.get('/JRM/service/GetMessage', Services.getMessage);
+router.get('/JRM/service/GetName', Services.getName);
+router.get('/JRM/service/GetRanking', Services.getRanking);
+router.get('/JRM/service/GetReplay', Services.getReplay);
+router.post('/JRM/service/ScoreEntry', upload.single('fileName'), Services.scoreEntry);
