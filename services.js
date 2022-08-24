@@ -146,25 +146,25 @@ export const getRanking = (req, res) => {
 					//Top 1 with 50 mil
 					if(rank == 1)
 					{
-						if(score >= 50000000)
+						if(score >= 50 * 1000000)
 						{
 							rank_class = 1;
 						}
-						else if(score >= 10000000)
+						else if(score >= 10 * 1000000)
 						{
 							rank_class = 2;
 						}
 					}
 					//Top 30 percentile with 10 mil
-					else if(rank / r.length >= 0.3)
+					else if((rank / r.length) >= 0.3)
 					{
-						if(score >= 10000000)
+						if(score >= 10 * 1000000)
 						{
 							rank_class = 2;
 						}
 					}
 
-					ranks.push(`${index}\n${r[i]._id}\n${r[i].id}\n${score}\n0\n${r[i].level}\n${mode_int}0${rank_class}}\n${r[i].time}\n${r[i].jewel}\n${lit}`);
+					ranks.push(`${index}\n${r[i]._id}\n${r[i].id}\n${score}\n0\n${r[i].level}\n${mode_int}0${rank_class}\n${r[i].time}\n${r[i].jewel}\n${lit}`);
 				}
 
 				res.send(ranks.join('.'));
