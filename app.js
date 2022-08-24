@@ -20,9 +20,9 @@ app.use('/', Router.router);
 import fs from 'node:fs';
 import path from 'path';
 app.listen(hostport, () => {
-  console.log(`Server for Jewelry Master created on http://${hostname}:${hostport}/`);
-  // Create directory for replays storage.
-  if (!fs.existsSync(path.resolve() + '/rep')) {
-    fs.mkdir(path.resolve() + '/rep', (e) => { if (e) { throw e; } });
-  }
+	console.log(`Server for Jewelry Master created on http://${hostname}:${hostport}/`);
+	// Create directory for replays storage.
+	if (!fs.existsSync(path.resolve() + '/rep')) {
+		fs.mkdir(path.resolve() + '/rep', (e) => { if (e) { throw e; } });
+	}
 });
