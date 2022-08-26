@@ -147,16 +147,16 @@ export const getRanking = (req, res) => {
 
 					switch (mode_int) {
 						case 1:
-							//Top 1 with 50 mil
+							//Top 1 with 5 mil
 							if (rank == 1) {
 								if (score >= 5 * 1000000) {
 									rank_class = 1;
 								}
-								else if (score >= 5 * 1000000) {
+								else if (score >= 1 * 1000000) {
 									rank_class = 2;
 								}
 							}
-							//Top 30 percentile with 10 mil
+							//Top 30 percentile with 1 mil
 							else if ((rank / r.length) >= 0.3) {
 								if (score >= 1 * 1000000) {
 									rank_class = 2;
@@ -165,7 +165,7 @@ export const getRanking = (req, res) => {
 							break;
 
 						case 2:
-							//Top 1 with 50 mil
+							//Top 1 with 10 mil
 							if (rank == 1) {
 								if (score >= 10 * 1000000) {
 									rank_class = 1;
@@ -174,9 +174,9 @@ export const getRanking = (req, res) => {
 									rank_class = 2;
 								}
 							}
-							//Top 30 percentile with 10 mil
+							//Top 30 percentile with 5 mil
 							else if ((rank / r.length) >= 0.3) {
-								if (score >= 10 * 1000000) {
+								if (score >= 5 * 1000000) {
 									rank_class = 2;
 								}
 							}
