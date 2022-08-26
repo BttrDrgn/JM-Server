@@ -143,25 +143,60 @@ export const getRanking = (req, res) => {
 					let rank = (i + 1) * (index + 1);
 					let score = r[i].score;
 
-					//Top 1 with 50 mil
-					if(rank == 1)
-					{
-						if(score >= 50 * 1000000)
-						{
-							rank_class = 1;
-						}
-						else if(score >= 10 * 1000000)
-						{
-							rank_class = 2;
-						}
-					}
-					//Top 30 percentile with 10 mil
-					else if((rank / r.length) >= 0.3)
-					{
-						if(score >= 10 * 1000000)
-						{
-							rank_class = 2;
-						}
+					switch (mode_int) {
+						case 1:
+							//Top 1 with 50 mil
+							if (rank == 1) {
+								if (score >= 5 * 1000000) {
+									rank_class = 1;
+								}
+								else if (score >= 5 * 1000000) {
+									rank_class = 2;
+								}
+							}
+							//Top 30 percentile with 10 mil
+							else if ((rank / r.length) >= 0.3) {
+								if (score >= 1 * 1000000) {
+									rank_class = 2;
+								}
+							}
+							break;
+
+						case 2:
+							//Top 1 with 50 mil
+							if (rank == 1) {
+								if (score >= 10 * 1000000) {
+									rank_class = 1;
+								}
+								else if (score >= 5 * 1000000) {
+									rank_class = 2;
+								}
+							}
+							//Top 30 percentile with 10 mil
+							else if ((rank / r.length) >= 0.3) {
+								if (score >= 10 * 1000000) {
+									rank_class = 2;
+								}
+							}
+							break;
+
+						case 3:
+							//Top 1 with 50 mil
+							if (rank == 1) {
+								if (score >= 50 * 1000000) {
+									rank_class = 1;
+								}
+								else if (score >= 10 * 1000000) {
+									rank_class = 2;
+								}
+							}
+							//Top 30 percentile with 10 mil
+							else if ((rank / r.length) >= 0.3) {
+								if (score >= 10 * 1000000) {
+									rank_class = 2;
+								}
+							}
+							break;
 					}
 
 					ranks.push(`${index}\n${r[i]._id}\n${r[i].id}\n${score}\n0\n${r[i].level}\n${mode_int}0${rank_class}\n${r[i].time}\n${r[i].jewel}\n${lit}`);
