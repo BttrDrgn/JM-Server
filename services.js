@@ -82,7 +82,9 @@ export const gameEntry = (req, res) => {
 // Get main menu message.
 export const getMessage = (req, res) => {
 	res.statusCode = 200;
-	res.send('Jewelry Master Server Emulator by Hipnosis, 2022');
+
+	if(fs.existsSync("./message.txt")) res.send(fs.readFileSync("./message.txt"));
+	else res.send('Jewelry Master Server Emulator by Hipnosis, 2022');
 };
 
 // Unkwnown usage. Probably unused?
